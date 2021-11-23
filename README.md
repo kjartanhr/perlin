@@ -1,5 +1,4 @@
-![barely passing](https://img.shields.io/badge/barely-passing-orange)
-
+![barely passing](https://img.shields.io/badge/barely-passing-yellow)
 # perlin
 The most insecure and badly written JavaScript framework of all time.
 
