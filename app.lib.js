@@ -19,11 +19,11 @@ function printf(...args) {
     return console.log((applicationConfig.debug) ? `(DEBUG/LOG) [${new Date().toISOString()}]:` : '', ...args)
 }
 // $ EXPOSE $: Method (arg)
-function $(arg) {
+/*function $(arg) {
     const defineMatcher = /(define \w+ as \w+)/gi;
     if (defineMatcher.test(arg)) {
         const fname = arg.substr(7, 2);
         const val = arg.substr(13);
         return eval(`var ${fname} = ${val}`);
     }
-}
+}*/
