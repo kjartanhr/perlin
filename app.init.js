@@ -6,17 +6,32 @@
 let namespace = {
     append(key, method) {
         if (typeof method !== 'function') throw Error('Cannot append non-methods to the namespace'); else namespace[key] = method;
-    }
+    },
+    remove(key) {
+        if (namespace[key]) delete namespace[key];
+    },
+    plugins: {}
 };
 let perlin = {
     state: {},
+    subscriptions: [],
     setState(key, value) {
         perlin.state[key] = value;
         if (typeof runApplicationReRender === undefined) throw Error('Cannot re-render application before initialisation.'); else runApplicationReRender();
+    },
+    subscribe(event, callback) {
+        perlin.subscriptions.push({event, callback});
+    }
+};
+let perlinRouter = {
+    callRouteUpdate() {
+        perlin.subscriptions.forEach(sub => {
+            if (sub.event === "routeChanges") sub.callback.call();
+        });
     }
 };
 
-(function(){
+function configureNameSpaceEnvironment() {
     const ns = document.getElementsByTagName('namespace')[0];
     const nsUsing = ns.getElementsByTagName('using')[0];
     const nsDefer = ns.getElementsByTagName('defer')[0];
@@ -47,4 +62,4 @@ let perlin = {
         });
         return r;
     }
-})();
+};
