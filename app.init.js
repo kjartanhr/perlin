@@ -5,8 +5,7 @@
 
 let namespace = {
     append(key, method) {
-        if (typeof method !== 'function') throw Error('Cannot append non-methods to the namespace');
-        namespace[key] = method;
+        if (typeof method !== 'function') throw Error('Cannot append non-methods to the namespace'); else namespace[key] = method;
     }
 };
 let perlin = {
