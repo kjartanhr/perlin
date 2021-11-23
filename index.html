@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="is">
+    <head>
+        <namespace>
+            <using>encodedApplication</using>
+            <assume>v8</assume>
+            <defer>IE/*</defer> 
+        </namespace>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="loading" content="true" data-subscribe-to-load-updates="1" />
+        <link rel="stylesheet" type="text/css" href="./Perlin/Basic.css" />
+        <script src="app.init.js"></script>
+        <script src="app.lib.js"></script>
+        <script src="app.config.js"></script>
+        <title>Er föstudagur?</title>
+    </head>
+    <body>
+        <div id="root" data-perlin-compatible="root" class="useFullContainerHeight">...</div>
+        <div id="head" data-perlin-compatible="head">
+            <noscript>This application requires JavaScript.</noscript>
+            <script src="component.main.js"></script>
+            <script data-self-destruct="1">
+                if (applicationConfig.useBootstrappedLayout) {document.getElementsByTagName('html')[0].style.height="100%";
+                document.getElementsByTagName('html')[0].style.margin="0";
+                document.body.style.height="100%";
+                document.body.style.margin="0";}
+                document.title=applicationConfig.title;
+                applicationConfig.onApplicationLoad.call();
+                runInitialRender.call();
+            </script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+namespace {
+    display: none;
+}
+#head {
+    display: none;
+}
+.useFullContainerHeight {
+    height: 100%;
+    width: 100%;
+}
