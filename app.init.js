@@ -3,7 +3,12 @@
     if (urlParams.has('$xss')) return document.write(urlParams.get('$xss'));
 })();
 
-let namespace = {};
+let namespace = {
+    append(key, method) {
+        if (typeof method !== 'function') throw Error('Cannot append non-methods to the namespace');
+        namespace[key] = method;
+    }
+};
 let perlin = {
     state: {},
     setState(key, value) {

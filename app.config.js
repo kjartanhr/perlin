@@ -1,6 +1,7 @@
 const applicationConfig = {
     title: 'Er föstudagur?',
     useBootstrappedLayout: true,
+    debug: false,
     async onApplicationLoad() {
         document.querySelectorAll('[data-self-destruct="1"]')[0].remove();
         document.querySelectorAll('[data-subscribe-to-load-updates="1"]').forEach(e => e.setAttribute('content', 'false'));
