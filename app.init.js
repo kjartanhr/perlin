@@ -8,9 +8,7 @@ let perlin = {
     state: {},
     setState(key, value) {
         perlin.state[key] = value;
-        if (typeof runApplicationReRender === undefined) {
-            throw Error('Cannot re-render application before initialisation.');
-        } else runApplicationReRender()
+        if (typeof runApplicationReRender === undefined) throw Error('Cannot re-render application before initialisation.'); else runApplicationReRender();
     }
 };
 
